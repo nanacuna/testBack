@@ -1,11 +1,11 @@
-import express from 'express'
+const express = require('express')
 const server = express()
-import { ProductsModel } from './db.js'
+const { Products } = require('./db.js')
 
 server.get('/', (req, res) => {
-    ProductsModel.findAll()
+    Products.findAll()
     .then(resp => res.send(resp))
     .catch(err => console.log(err))
 })
 
-export default server
+module.exports = server

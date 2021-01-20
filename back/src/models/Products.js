@@ -1,8 +1,8 @@
 // import { Sequelize } from 'sequelize'
-import Sequelize from 'sequelize';
+const Sequelize = require('sequelize')
 
-const Products = (sequelize) => {
-    const Products = sequelize.define('products', {
+function Products (sequelize) {
+    sequelize.define('products', {
         // productId : {
         //     type : Sequelize.INTEGER,
         //     primaryKey: true,
@@ -51,4 +51,4 @@ const Products = (sequelize) => {
     })
 }
 
-export default Products
+module.exports = Products

@@ -1,6 +1,6 @@
-import dotenv from 'dotenv'
-import server from './src/server.js';
-import { conn } from './src/db.js';
+const dotenv = require('dotenv')
+const server = require('./src/server.js')
+const { conn } = require('./src/db.js')
 
 dotenv.config()
 
