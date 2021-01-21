@@ -1,5 +1,3 @@
-import products from './Products.js'
-import categories from './Categories.js'
 import { Sequelize } from 'sequelize'
 
 const Products_category = (sequelize) => {
@@ -11,16 +9,18 @@ const Products_category = (sequelize) => {
         },
         category_id: {
             type: Sequelize.INTEGER,
-            reference: {
-                model: categories,
-                key: 'category_id'
+            references: {
+                model: 'categories',
+                key: 'category_id',
+                foreignKeyConstraint: true
             }
         },
         product_id: {
             type: Sequelize.INTEGER,
-            reference: {
-                model: products,
-                key: 'product_id'
+            references: {
+                model: 'products',
+                key: 'product_id',
+                foreignKeyConstraint: true
             }
         },
         created_at: {
@@ -35,11 +35,8 @@ const Products_category = (sequelize) => {
         }
     },
     {
-        timestamps: false,
+        timestamps: false
     })
 }
-
-products.belongsToMany(categories, { through: Products_category });
-categories.belongsToMany(products, { through: Products_category });
 
 export default Products_category
