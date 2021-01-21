@@ -1,22 +1,32 @@
 import Sequelize from 'sequelize';
 
 function Categories (sequelize) {
-    sequelize.define('Categories', {
-        name: {
-            type: Sequelize.STRING,
-            allowNull: false
+    sequelize.define('categories',
+        {
+            category_id : {
+                type : Sequelize.INTEGER,
+                primaryKey: true,
+                autoIncrement: true
+            },
+            name: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+            created_at: {
+                type: Sequelize.DATE,
+                allowNull: false,
+                defaultValue: new Date()
+            },
+            updated_at: {
+                type: Sequelize.DATE,
+                allowNull: false,
+                defaultValue: new Date()
+            }
         },
-        createdAt: {
-            type: Sequelize.DATE,
-            allowNull: false,
-            defaultValue: new Date()
-        },
-        updatedAt: {
-            type: Sequelize.DATE,
-            allowNull: false,
-            defaultValue: new Date()
+        {
+            timestamps: false,
         }
-    });
+    );
 }
 
 export default Categories

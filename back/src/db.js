@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 import fs from 'fs';
+import { capitalizeKeys } from './utils/utils.js'
 
 dotenv.config()
 
@@ -23,6 +24,8 @@ for(const fileName of fileNames) {
     
     model(sequelize);
 }
+
+sequelize.models = capitalizeKeys(sequelize.models);
 
 const models = sequelize.models;
 
