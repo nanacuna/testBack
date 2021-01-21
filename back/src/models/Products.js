@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 
 const Products = (sequelize) => {
-    const Products = sequelize.define('products',
+    sequelize.define('products',
         {
             product_id : {
                 type : Sequelize.INTEGER,
@@ -18,10 +18,6 @@ const Products = (sequelize) => {
             },
             description: {
                 type: Sequelize.TEXT,
-                allowNull: false
-            },
-            categories: {
-                type: Sequelize.STRING,
                 allowNull: false
             },
             price: {

@@ -27,6 +27,14 @@ for(const fileName of fileNames) {
 
 sequelize.models = capitalizeKeys(sequelize.models);
 
+const { Products, Categories } = sequelize.models;
+
+// // Aca vendrian las relaciones
+// Products.belongsToMany(Categories, { through: 'products_category', foreignKey: 'category_id' });
+// Categories.belongsToMany(Products, { through: 'products_category', primaryKey: 'products_category_id', foreignKey: 'product_id' });
+
+// Products.belongsToMany(Categories, { through: 'products_category', timestamps: true } );
+
 const models = sequelize.models;
 
 export { models, sequelize as conn }
