@@ -1,9 +1,11 @@
 import express from 'express'
 const server = express()
-import { ProductsModel } from './db.js'
+import { models } from './db.js'
+
+console.log(models)
 
 server.get('/', (req, res) => {
-    ProductsModel.findAll()
+    models.Products.findAll()
     .then(resp => res.send(resp))
     .catch(err => console.log(err))
 })
